@@ -1,12 +1,3 @@
-import {
-  ArrowUpCircle,
-  CheckCircle2,
-  Circle,
-  HelpCircle,
-  XCircle,
-} from "lucide-react"
-
-
 export const groups = [
   {
     value: "group_1",
@@ -19,15 +10,19 @@ export const groups = [
 ]
 export const roles = [
   {
-    value: "admin",
+    value: "ADMIN",
     label: "Administrador",
   },
   {
-    value: "student",
+    value: "STUDENT",
     label: "Alumne",
   },
+  {
+    value: "PROFESSOR",
+    label: "Professor",
+  },
 ]
-export const created = [
+export const enabled = [
   {
     value: "true",
     label: "Sessió Iniciada",

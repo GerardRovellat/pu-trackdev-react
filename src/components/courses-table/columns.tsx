@@ -1,67 +1,58 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
+import {ColumnDef} from "@tanstack/react-table"
 
-import { DataTableColumnHeader } from "./data-table-column-header"
-import { DataTableRowActions } from "./data-table-row-actions"
+import {DataTableColumnHeader} from "./data-table-column-header"
+import {DataTableRowActions} from "./data-table-row-actions"
 import {CourseListItem} from "../data/courses/schema";
+import {ExternalLink} from "lucide-react";
+import {Link} from "react-router-dom";
+import React from "react";
 
 const columns: ColumnDef<CourseListItem>[] = [
-  /*{
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
-        className="translate-y-[2px]"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
-        className="translate-y-[2px]"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "id",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="User" />
-    ),
-    cell: ({ row }) => <div className="w-[80px]">{row.getValue("id")}</div>,
-    enableSorting: false,
-    enableHiding: false,
-  },*/
   {
     accessorKey: "subject",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Soubject" />
+      <DataTableColumnHeader column={column} title="Assignatura" />
     ),
     cell: ({ row }) => {
       return (
         <div className="flex space-x-2">
           <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("subject")}
+            {row.original.subject.name}
           </span>
         </div>
       )
     },
   },
   {
-    accessorKey: "start_year",
+    accessorKey: "startYear",
     header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Start Year" />
+        <DataTableColumnHeader column={column} title="Any d'inici" />
     ),
     cell: ({ row }) => {
       return (
           <div className="flex space-x-2">
           <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("start_year")}
+            {row.getValue("startYear")}
+          </span>
+          </div>
+      )
+    },
+  },
+  {
+    accessorKey: "githubOrganization",
+    header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Organització de GitHub" />
+    ),
+    cell: ({ row }) => {
+      return (
+          <div className="flex space-x-2">
+          <span className="max-w-[500px] truncate font-medium flex items-center space-x-1">
+            <ExternalLink className="h-3 w-3" />
+            <Link to={"/github/" + row.getValue("githubOrganization")} target="_blank" className="max-w-[500px] truncate font-medium">
+                {row.getValue("githubOrganization")}
+            </Link>
           </span>
           </div>
       )

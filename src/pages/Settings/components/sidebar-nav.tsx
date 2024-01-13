@@ -1,8 +1,7 @@
 "use client"
 
 import {Link, useLocation} from "react-router-dom";
-import { usePathname } from "next/navigation"
-import { buttonVariants } from "../../../registry/ui/button"
+import {buttonVariants} from "../../../registry/ui/button"
 import {cn} from "../../../lib/utils";
 import React from "react";
 
@@ -15,8 +14,6 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
 
 export function SidebarNav({ className, items, ...props }: SidebarNavProps) {
     const pathname = useLocation().pathname
-    console.log(pathname)
-    console.log(items)
 
     return (
         <nav

@@ -8,21 +8,27 @@ import {
     Copy,
     CreditCard,
     Fingerprint,
+    FolderKanban,
     HelpCircle,
+    History,
+    type Icon as LucideIcon,
+    Info,
     Laptop,
+    List,
     Loader2,
     LucideProps,
+    Megaphone,
+    MessagesSquare,
     Moon,
     MoreVertical,
     Plus,
     Settings,
     SunMedium,
+    Table,
     Trash,
     Twitter,
     User,
     X,
-    History,
-    type Icon as LucideIcon, Info, MessagesSquare, Megaphone,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -53,6 +59,9 @@ export const Icons = {
     messagesSquare: MessagesSquare,
     Megaphone: Megaphone,
     History: History,
+    FolderKanban: FolderKanban,
+    Table: Table,
+    List: List,
     gitHub: (props: LucideProps) => (
         <svg viewBox="0 0 438.549 438.549" {...props}>
 <path
